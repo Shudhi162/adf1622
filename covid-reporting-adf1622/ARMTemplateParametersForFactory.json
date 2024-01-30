@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covid-reporting-adf1622"
+		},
+		"ls_ablob_covidreporting16_connectionString": {
+			"value": ""
+		},
+		"ls_adls_covid19rep_accountKey": {
+			"value": ""
+		},
+		"ls_adls_covid19rep_properties_typeProperties_url": {
+			"value": "https://covid19rep.dfs.core.windows.net/"
+		}
+	}
+}
