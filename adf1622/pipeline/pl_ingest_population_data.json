@@ -76,7 +76,8 @@
 					"dataset": {
 						"referenceName": "ds_populatio_raw_gz",
 						"type": "DatasetReference"
-					}
+					},
+					"sleep": 10
 				}
 			},
 			{
@@ -103,10 +104,30 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
 						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "If column count",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('Get Metadata').output.columnCount,13)",
+						"type": "Expression"
 					}
 				}
 			}
